@@ -1,659 +1,242 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meatyer Meat Co</title>
-  <meta name="description" content="Meatyer Meat Co. Real smoked meat snacks. Meatyorite launching soon." />
-  <style>
-    :root {
-      --bg: #0f0c0a;
-      --panel: rgba(255,255,255,0.06);
-      --panel-2: rgba(255,255,255,0.03);
-      --text: #f5efe8;
-      --muted: #c9b8a5;
-      --accent: #ff6a00;
-      --accent-2: #ffb347;
-      --border: rgba(255,255,255,0.10);
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
-      --radius: 22px;
-      --max: 1180px;
-    }
+export default function MeatyoriteComingSoon() {
+  const foods = ["Tacos", "Nachos", "Ramen", "Baked Potatoes", "Pizza", "Mac & Cheese"];
+  const features = [
+    {
+      title: "Real smoked meat",
+      text: "Craft BBQ meat bites made for real flavor, real convenience, and real cravings.",
+    },
+    {
+      title: "Ready when you are",
+      text: "Snack them straight from the pack or drop them onto your next meal for instant impact.",
+    },
+    {
+      title: "Built for anywhere",
+      text: "Convenience stores, grocery shelves, tailgates, camping trips, game days, and fast-paced lives.",
+    },
+  ];
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(255,106,0,0.18), transparent 35%),
-        radial-gradient(circle at 80% 20%, rgba(255,179,71,0.10), transparent 28%),
-        linear-gradient(180deg, #17110d 0%, #0f0c0a 55%, #0b0908 100%);
-      min-height: 100vh;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(12px);
-      background: rgba(12,10,9,0.55);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 14px;
-    }
-
-    .brand-badge {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), #ff3200);
-      box-shadow: 0 10px 30px rgba(255,106,0,0.35);
-      font-size: 18px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .cta-small {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), #ff3d00);
-      color: white;
-      font-weight: 700;
-      font-size: 14px;
-      box-shadow: 0 14px 28px rgba(255,106,0,0.28);
-    }
-
-    .hero {
-      padding: 72px 0 48px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-card,
-    .section-panel,
-    .feature,
-    .faq-item {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-    }
-
-    .hero-copy {
-      padding: 44px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,106,0,0.12);
-      border: 1px solid rgba(255,106,0,0.30);
-      color: #ffd4b5;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 18px 0 16px;
-      font-size: clamp(40px, 6vw, 78px);
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-    }
-
-    .gradient {
-      background: linear-gradient(180deg, #fff1df, #ffb367 70%, #ff6a00 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .sub {
-      margin: 0 0 26px;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 19px;
-      line-height: 1.55;
-    }
-
-    .actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      font-weight: 800;
-      border: 1px solid transparent;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #ff3d00);
-      color: white;
-      box-shadow: 0 18px 36px rgba(255,106,0,0.24);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      border-color: rgba(255,255,255,0.12);
-    }
-
-    .mini-stats {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      padding-top: 8px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .mini-stats b {
-      display: block;
-      color: var(--text);
-      font-size: 18px;
-      margin-bottom: 4px;
-    }
-
-    .hero-card {
-      position: relative;
-      overflow: hidden;
-      padding: 26px;
-      min-height: 460px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background:
-        radial-gradient(circle at 70% 18%, rgba(255,179,71,0.25), transparent 24%),
-        radial-gradient(circle at 80% 24%, rgba(255,106,0,0.30), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
-    }
-
-    .meteor {
-      position: absolute;
-      top: 48px;
-      right: 42px;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #ffdca9 0%, #ffb260 20%, #ff6a00 42%, #8f2b00 72%, #3c1406 100%);
-      box-shadow:
-        0 0 36px rgba(255,140,0,0.45),
-        0 0 100px rgba(255,95,31,0.20);
-      transform: rotate(-10deg);
-    }
-
-    .meteor::before {
-      content: "";
-      position: absolute;
-      inset: -16px -120px 70px 34px;
-      background: linear-gradient(90deg, rgba(255,177,71,0), rgba(255,106,0,0.45) 55%, rgba(255,255,255,0) 100%);
-      filter: blur(16px);
-      transform: rotate(-14deg);
-      border-radius: 999px;
-    }
-
-    .meteor::after {
-      content: "";
-      position: absolute;
-      inset: 26px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 40% 35%, rgba(255,255,255,0.26), transparent 30%),
-        repeating-radial-gradient(circle at 50% 50%, rgba(40,16,8,0.45) 0 10px, rgba(0,0,0,0) 10px 20px);
-      mix-blend-mode: overlay;
-      opacity: 0.65;
-    }
-
-    .card-label {
-      position: relative;
-      z-index: 1;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-card h2 {
-      position: relative;
-      z-index: 1;
-      margin: 0 0 12px;
-      font-size: 36px;
-      line-height: 1;
-    }
-
-    .hero-card p {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      max-width: 420px;
-    }
-
-    section {
-      padding: 18px 0 24px;
-    }
-
-    .section-head {
-      margin-bottom: 18px;
-    }
-
-    .section-head h3 {
-      margin: 0 0 8px;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 740px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .feature {
-      padding: 24px;
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,106,0,0.12);
-      font-size: 22px;
-      margin-bottom: 14px;
-    }
-
-    .feature h4 {
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .section-panel {
-      padding: 28px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .list li {
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .list strong { color: var(--text); }
-
-    .form-wrap {
-      display: grid;
-      gap: 12px;
-    }
-
-    .free-note {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      margin-top: 6px;
-    }
-
-    input[type="email"] {
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-size: 16px;
-      outline: none;
-    }
-
-    input[type="email"]::placeholder { color: #b89a82; }
-
-    .form-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .form-row input { flex: 1 1 260px; }
-
-    .fine {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .faq {
-      display: grid;
-      gap: 14px;
-    }
-
-    .faq-item {
-      padding: 22px;
-    }
-
-    .faq-item h4 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .faq-item p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    footer {
-      padding: 30px 0 60px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 20px;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .features,
-      .split {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy,
-      .hero-card,
-      .section-panel,
-      .feature,
-      .faq-item {
-        padding: 22px;
-      }
-
-      .hero-card {
-        min-height: 380px;
-      }
-
-      .meteor {
-        width: 180px;
-        height: 180px;
-        top: 34px;
-        right: 24px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="topbar">
-    <div class="container nav">
-      <a href="#top" class="brand">
-        <div class="brand-badge">🔥</div>
-        <div>Meatyer Meat Co</div>
-      </a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#product">Product</a>
-        <a href="#waitlist">Waitlist</a>
-        <a href="mailto:info@meatyer.com">Contact</a>
+  return (
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,104,0,0.25),transparent_35%),radial-gradient(circle_at_70%_30%,rgba(255,60,0,0.18),transparent_25%),linear-gradient(to_bottom,#090909,rgba(20,20,20,0.96),#000000)]" />
+        <div className="absolute inset-0 opacity-25 bg-[url('https://images.unsplash.com/photo-1517093157656-b9eccef91cb1?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-500/30 blur-3xl" />
+        <div className="absolute top-24 right-10 h-56 w-56 rounded-full bg-red-600/20 blur-3xl" />
+        <div className="absolute bottom-24 left-10 h-64 w-64 rounded-full bg-orange-400/10 blur-3xl" />
       </div>
-      <a class="cta-small" href="#waitlist">Get Updates</a>
-    </div>
-  </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Launching Soon • Real Smoked Meat Snacks</div>
-          <h1>Flavor <span class="gradient">Impact</span><br>Starts Here.</h1>
-          <p class="sub">Meatyer Meat Co is building bold, real-smoked meat products that hit harder than ordinary snacks. <strong>MEATYORITE</strong> is the first strike.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#waitlist">Join the Waitlist</a>
-            <a class="btn btn-secondary" href="mailto:info@meatyer.com?subject=Meatyer%20Inquiry">Email Us</a>
-          </div>
-          <div class="mini-stats">
-            <div><b>Real Smoke</b>Built around true BBQ flavor, not fake seasoning.</div>
-            <div><b>Brand Ready</b>Landing page, domain email, and launch presence live.</div>
-            <div><b>Low Cost</b>Runs on free hosting with room to grow later.</div>
-          </div>
-        </div>
+      <main className="relative z-10">
+        <section className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 py-16 md:px-10">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <div className="mb-5 inline-flex items-center rounded-full border border-orange-500/40 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-orange-300 shadow-[0_0_30px_rgba(255,98,0,0.12)]">
+                From the pit to orbit
+              </div>
 
-        <div class="hero-card">
-          <div class="meteor" aria-hidden="true"></div>
-          <div class="card-label">Flagship Concept</div>
-          <h2>MEATYORITE</h2>
-          <p>A meteor of smoky meat flavor crashing into convenience. Built for snack shelves, BBQ fans, and high-impact branding.</p>
-        </div>
-      </div>
-    </section>
+              <h1 className="max-w-4xl text-5xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+                MEATYORITE
+              </h1>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <h3>A real brand, not just a placeholder.</h3>
-          <p>This site can look strong and still stay free. GitHub Pages handles hosting, your Porkbun domain handles routing, and simple front-end features give you a credible launch presence without paying for a full platform yet.</p>
-        </div>
-        <div class="features">
-          <div class="feature">
-            <div class="feature-icon">🥩</div>
-            <h4>Brand Story</h4>
-            <p>Tell people what Meatyer is, what makes it different, and why MEATYORITE exists.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">🚀</div>
-            <h4>Launch Presence</h4>
-            <p>Give visitors a place to land when they see your packaging, social posts, or future retailer outreach.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">📬</div>
-            <h4>Lead Capture</h4>
-            <p>Collect waitlist interest for free using a simple external form link or a lightweight email capture workflow.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+              <div className="mt-4 h-1.5 w-40 rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-yellow-300" />
 
-    <section id="product">
-      <div class="container split">
-        <div class="section-panel">
-          <div class="section-head">
-            <h3>What this free site can do now</h3>
-          </div>
-          <ul class="list">
-            <li><strong>Show your product concept:</strong> hero image, logo, taglines, and packaging renders.</li>
-            <li><strong>Drive inquiries:</strong> buttons to email <a href="mailto:info@meatyer.com">info@meatyer.com</a> or connect on social.</li>
-            <li><strong>Build retailer credibility:</strong> one clean URL instead of a blank domain.</li>
-            <li><strong>Capture interest:</strong> link to a free Google Form waitlist or free form service later.</li>
-            <li><strong>Update instantly:</strong> edit one HTML file and republish automatically.</li>
-          </ul>
-        </div>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
+                The smoked meat snack built for flavor impact. Craft BBQ meat bites that hit meals hard and fuel life fast.
+              </p>
 
-        <div class="section-panel">
-          <div class="section-head">
-            <h3>Best next upgrades</h3>
-          </div>
-          <ul class="list">
-            <li><strong>Add your render:</strong> replace the meteor graphic with your packaging image later.</li>
-            <li><strong>Add social proof:</strong> Instagram, TikTok, and a short founder story.</li>
-            <li><strong>Create a waitlist:</strong> connect a free form so interested people can sign up.</li>
-            <li><strong>Add a wholesale CTA:</strong> a button for buyers, retailers, or co-packing inquiries.</li>
-            <li><strong>Move to Shopify later:</strong> only when you actually need checkout and inventory.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+              <div className="mt-8 space-y-3 text-xl font-bold uppercase tracking-wide text-orange-200 md:text-2xl">
+                <div>Flavor Impact</div>
+                <div>Add Meat Anytime In No Time</div>
+                <div>Real Smoke. Real Meat.</div>
+              </div>
 
-    <section id="waitlist">
-      <div class="container split">
-        <div class="section-panel">
-          <div class="section-head">
-            <h3>Join the waitlist</h3>
-            <p>Keep this free for now by using a simple button to email you or later replacing it with a free waitlist form link.</p>
-          </div>
-          <div class="form-wrap">
-            <div class="form-row">
-              <input type="email" placeholder="Enter your email address" aria-label="Email address" id="emailInput" />
-              <button class="btn btn-primary" onclick="joinWaitlist()">Get Updates</button>
+              <p className="mt-8 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
+                MEATYORITE is a new category of ready-to-eat smoked meat bites made to be eaten on the go or dropped onto tacos, nachos, eggs, ramen, rice bowls, pizza, and more. Bold, smoky, versatile, and unforgettable on the shelf.
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="#notify"
+                  className="rounded-2xl border border-orange-400 bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.2em] text-white shadow-[0_10px_40px_rgba(255,95,31,0.35)] transition hover:scale-[1.02]"
+                >
+                  Get Launch Updates
+                </a>
+                <a
+                  href="#product"
+                  className="rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-sm font-bold uppercase tracking-[0.2em] text-zinc-200 transition hover:bg-white/10"
+                >
+                  See The Concept
+                </a>
+              </div>
             </div>
-            <div class="fine">This free version opens an email draft so people can request updates. Later, you can swap this to a true form without rebuilding the whole site.</div>
-            <div id="message" class="free-note"></div>
-          </div>
-        </div>
 
-        <div class="section-panel">
-          <div class="section-head">
-            <h3>Contact</h3>
-            <p>Use this page to make the business feel real immediately, even before product launch.</p>
-          </div>
-          <ul class="list">
-            <li><strong>Email:</strong> <a href="mailto:info@meatyer.com">info@meatyer.com</a></li>
-            <li><strong>Founder:</strong> <a href="mailto:john@meatyer.com">john@meatyer.com</a></li>
-            <li><strong>Instagram:</strong> add your handle here once claimed</li>
-            <li><strong>Retail / wholesale:</strong> add a dedicated inquiry email later</li>
-          </ul>
-          <p class="free-note">You can run this entire page free on GitHub Pages. The only paid item right now is the domain itself.</p>
-        </div>
-      </div>
-    </section>
+            <div className="relative mx-auto w-full max-w-xl">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-orange-500/30 via-red-500/20 to-transparent blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-orange-500/20 bg-zinc-950/80 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.55)] backdrop-blur">
+                <div className="mb-5 flex items-center justify-between">
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-300">Coming Soon</div>
+                    <div className="mt-2 text-2xl font-black uppercase text-white">Meteor Flavor Strike</div>
+                  </div>
+                  <div className="rounded-full border border-orange-400/30 bg-orange-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-orange-200">
+                    Shelf-Stable
+                  </div>
+                </div>
 
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h3>FAQ</h3>
-        </div>
-        <div class="faq">
-          <div class="faq-item">
-            <h4>Can a free page look legitimate?</h4>
-            <p>Yes. Design quality matters more than platform cost at this stage. A clean hero section, strong messaging, custom domain, and clear calls to action already put you ahead of most early concepts.</p>
-          </div>
-          <div class="faq-item">
-            <h4>What works for free and what does not?</h4>
-            <p>Free works well for brand pages, launch teasers, contact buttons, product storytelling, image galleries, and simple lead capture. Full ecommerce checkout, inventory, and advanced CRM are better later on a paid platform.</p>
-          </div>
-          <div class="faq-item">
-            <h4>Can this be updated without coding much?</h4>
-            <p>Yes. You can keep editing the text, links, emails, and images in a single file. Once you get comfortable, it becomes a very fast way to keep the site fresh without monthly software cost.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,110,20,0.22),rgba(0,0,0,0.25)_45%,rgba(0,0,0,0.95))]">
+                  <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_30%),radial-gradient(circle_at_30%_30%,rgba(255,120,0,0.22),transparent_18%),radial-gradient(circle_at_70%_60%,rgba(255,40,0,0.18),transparent_24%)]" />
+                  <div className="absolute top-12 right-10 h-24 w-24 rounded-full bg-orange-500/30 blur-2xl" />
+                  <div className="absolute left-10 bottom-16 h-20 w-20 rounded-full bg-red-500/25 blur-2xl" />
 
-  <footer>
-    <div class="container footer-row">
-      <div>© 2026 Meatyer Meat Co</div>
-      <div>Real smoked meat snacks. Built lean. Launching soon.</div>
+                  <div className="relative flex h-60 w-60 items-center justify-center rounded-full border border-orange-400/20 bg-gradient-to-br from-orange-600 via-red-600 to-zinc-900 shadow-[0_0_90px_rgba(255,98,0,0.45)]">
+                    <div className="absolute inset-3 rounded-full border border-yellow-300/10" />
+                    <div className="absolute -left-10 top-20 h-5 w-28 rotate-[-20deg] rounded-full bg-orange-400/60 blur-xl" />
+                    <div className="absolute right-[-1.5rem] top-10 h-4 w-24 rotate-[30deg] rounded-full bg-red-400/60 blur-xl" />
+                    <div className="grid grid-cols-4 gap-2 p-6">
+                      {Array.from({ length: 12 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className="h-10 w-10 rounded-md border border-black/10 bg-gradient-to-br from-amber-500 via-orange-700 to-stone-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_16px_rgba(0,0,0,0.35)]"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300">Core product</div>
+                    <div className="mt-2 text-lg font-black uppercase text-white">Smoked Meat Bites</div>
+                    <p className="mt-2 text-sm leading-6 text-zinc-400">
+                      Tender, smoky pork shoulder cubes and future flavor drops built for snacking or adding to meals.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300">Brand promise</div>
+                    <div className="mt-2 text-lg font-black uppercase text-white">Add meat to anything</div>
+                    <p className="mt-2 text-sm leading-6 text-zinc-400">
+                      Turn simple food into a bold BBQ experience in seconds.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="product" className="mx-auto max-w-7xl px-6 pb-12 md:px-10">
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_60px_rgba(0,0,0,0.3)] backdrop-blur md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+              <div>
+                <div className="text-sm font-semibold uppercase tracking-[0.28em] text-orange-300">What is MEATYORITE?</div>
+                <h2 className="mt-3 text-3xl font-black uppercase leading-tight text-white md:text-5xl">
+                  A meat meteor strike for everyday meals
+                </h2>
+                <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 md:text-lg">
+                  MEATYORITE is built around one unforgettable idea: a meteor made of delicious smoked meat cubes crashing into food and creating an explosion of flavor. It is fast protein, real BBQ craft, and convenience-store energy in one bold format.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                {features.map((feature) => (
+                  <div
+                    key={feature.title}
+                    className="rounded-[1.5rem] border border-orange-500/15 bg-zinc-950/70 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+                  >
+                    <div className="text-lg font-black uppercase text-white">{feature.title}</div>
+                    <p className="mt-3 text-sm leading-6 text-zinc-400">{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.28em] text-orange-300">Flavor targets</div>
+              <h3 className="mt-3 text-3xl font-black uppercase text-white md:text-5xl">
+                Drop it on everything
+              </h3>
+              <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 md:text-lg">
+                Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {foods.map((food) => (
+                  <span
+                    key={food}
+                    className="rounded-full border border-orange-400/20 bg-orange-500/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.16em] text-orange-100"
+                  >
+                    {food}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  title: 'Craft BBQ energy',
+                  text: 'Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.',
+                },
+                {
+                  title: 'Impulse buy appeal',
+                  text: 'Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.',
+                },
+                {
+                  title: 'Protein with personality',
+                  text: 'Not another boring meat snack. This is a flavor weapon with a story people remember.',
+                },
+                {
+                  title: 'Coming soon',
+                  text: 'We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.',
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6"
+                >
+                  <div className="text-lg font-black uppercase text-white">{item.title}</div>
+                  <p className="mt-3 text-sm leading-6 text-zinc-400">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="notify" className="mx-auto max-w-5xl px-6 pb-20 md:px-10 md:pb-28">
+          <div className="relative overflow-hidden rounded-[2rem] border border-orange-500/20 bg-gradient-to-br from-zinc-950 via-black to-zinc-900 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.55)] md:p-12">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,110,20,0.25),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(255,40,0,0.18),transparent_25%)]" />
+            <div className="relative z-10 text-center">
+              <div className="text-sm font-semibold uppercase tracking-[0.32em] text-orange-300">Coming soon</div>
+              <h4 className="mt-4 text-3xl font-black uppercase text-white md:text-5xl">
+                Be first when the meteor lands
+              </h4>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">
+                MEATYORITE is gearing up for launch. Follow the brand, grab early updates, and be ready for the first flavor strike.
+              </p>
+
+              <form className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 sm:flex-row">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="h-14 flex-1 rounded-2xl border border-white/10 bg-white/5 px-5 text-base text-white placeholder:text-zinc-500 outline-none ring-0 transition focus:border-orange-400"
+                />
+                <button
+                  type="submit"
+                  className="h-14 rounded-2xl bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 px-8 text-sm font-extrabold uppercase tracking-[0.2em] text-white shadow-[0_10px_40px_rgba(255,95,31,0.35)] transition hover:scale-[1.02]"
+                >
+                  Notify Me
+                </button>
+              </form>
+
+              <div className="mt-5 text-xs uppercase tracking-[0.22em] text-zinc-500">
+                Flavor Impact • Add Meat Anytime • Real Smoke. Real Meat.
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-  </footer>
-
-  <script>
-    function joinWaitlist() {
-      const input = document.getElementById('emailInput');
-      const message = document.getElementById('message');
-      const email = input.value.trim();
-      const looksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      if (!looksValid) {
-        message.textContent = 'Enter a valid email address first.';
-        return;
-      }
-
-      message.textContent = 'Opening your email app to request updates.';
-      const subject = encodeURIComponent('Meatyer Waitlist');
-      const body = encodeURIComponent('Please add me to the Meatyer waitlist: ' + email);
-      window.location.href = 'mailto:info@meatyer.com?subject=' + subject + '&body=' + body;
-    }
-  </script>
-</body>
-</html>
+  );
+}
