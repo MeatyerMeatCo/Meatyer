@@ -1,242 +1,863 @@
-export default function MeatyoriteComingSoon() {
-  const foods = ["Tacos", "Nachos", "Ramen", "Baked Potatoes", "Pizza", "Mac & Cheese"];
-  const features = [
-    {
-      title: "Real smoked meat",
-      text: "Craft BBQ meat bites made for real flavor, real convenience, and real cravings.",
-    },
-    {
-      title: "Ready when you are",
-      text: "Snack them straight from the pack or drop them onto your next meal for instant impact.",
-    },
-    {
-      title: "Built for anywhere",
-      text: "Convenience stores, grocery shelves, tailgates, camping trips, game days, and fast-paced lives.",
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEATYORITE | Coming Soon</title>
+  <meta
+    name="description"
+    content="MEATYORITE is the smoked meat snack built for flavor impact. Real smoke. Real meat. Add meat anytime in no time."
+  />
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: rgba(18, 18, 18, 0.88);
+      --panel-2: rgba(28, 28, 28, 0.9);
+      --text: #f7f3ee;
+      --muted: #b4aea6;
+      --orange: #ff6a00;
+      --orange-2: #ff8d2b;
+      --red: #cf2f11;
+      --steel: #8a8d91;
+      --line: rgba(255, 255, 255, 0.08);
+      --glow: 0 0 40px rgba(255, 106, 0, 0.22);
+      --radius: 24px;
+      --max: 1180px;
+    }
 
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,104,0,0.25),transparent_35%),radial-gradient(circle_at_70%_30%,rgba(255,60,0,0.18),transparent_25%),linear-gradient(to_bottom,#090909,rgba(20,20,20,0.96),#000000)]" />
-        <div className="absolute inset-0 opacity-25 bg-[url('https://images.unsplash.com/photo-1517093157656-b9eccef91cb1?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center mix-blend-overlay" />
-        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-500/30 blur-3xl" />
-        <div className="absolute top-24 right-10 h-56 w-56 rounded-full bg-red-600/20 blur-3xl" />
-        <div className="absolute bottom-24 left-10 h-64 w-64 rounded-full bg-orange-400/10 blur-3xl" />
-      </div>
+    * {
+      box-sizing: border-box;
+    }
 
-      <main className="relative z-10">
-        <section className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 py-16 md:px-10">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div className="mb-5 inline-flex items-center rounded-full border border-orange-500/40 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-orange-300 shadow-[0_0_30px_rgba(255,98,0,0.12)]">
-                From the pit to orbit
-              </div>
+    html {
+      scroll-behavior: smooth;
+    }
 
-              <h1 className="max-w-4xl text-5xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-                MEATYORITE
-              </h1>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top center, rgba(255, 106, 0, 0.18), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(207, 47, 17, 0.12), transparent 20%),
+        linear-gradient(180deg, #080808 0%, #050505 45%, #000 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-              <div className="mt-4 h-1.5 w-40 rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-yellow-300" />
+    .noise::before,
+    .noise::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
-                The smoked meat snack built for flavor impact. Craft BBQ meat bites that hit meals hard and fuel life fast.
-              </p>
+    .noise::before {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.03) 0, transparent 18%),
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.02) 0, transparent 22%),
+        radial-gradient(circle at 30% 80%, rgba(255,255,255,0.02) 0, transparent 18%);
+      mix-blend-mode: screen;
+    }
 
-              <div className="mt-8 space-y-3 text-xl font-bold uppercase tracking-wide text-orange-200 md:text-2xl">
-                <div>Flavor Impact</div>
-                <div>Add Meat Anytime In No Time</div>
-                <div>Real Smoke. Real Meat.</div>
-              </div>
+    .noise::after {
+      background:
+        linear-gradient(transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+      opacity: 0.35;
+    }
 
-              <p className="mt-8 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
-                MEATYORITE is a new category of ready-to-eat smoked meat bites made to be eaten on the go or dropped onto tacos, nachos, eggs, ramen, rice bowls, pizza, and more. Bold, smoky, versatile, and unforgettable on the shelf.
-              </p>
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#notify"
-                  className="rounded-2xl border border-orange-400 bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.2em] text-white shadow-[0_10px_40px_rgba(255,95,31,0.35)] transition hover:scale-[1.02]"
-                >
-                  Get Launch Updates
-                </a>
-                <a
-                  href="#product"
-                  className="rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-sm font-bold uppercase tracking-[0.2em] text-zinc-200 transition hover:bg-white/10"
-                >
-                  See The Concept
-                </a>
-              </div>
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.45);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .brand span {
+      color: var(--orange-2);
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      padding: 72px 0 52px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 141, 43, 0.25);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: #ffd3b0;
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 8vw, 6.7rem);
+      font-weight: 900;
+    }
+
+    .fire-line {
+      width: 170px;
+      height: 6px;
+      border-radius: 999px;
+      margin: 20px 0 24px;
+      background: linear-gradient(90deg, var(--orange), var(--red), #ffcc80);
+      box-shadow: var(--glow);
+    }
+
+    .lead {
+      color: #e2ddd6;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .taglines {
+      margin: 26px 0 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .taglines div {
+      font-size: clamp(1.05rem, 2.3vw, 1.65rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #ffcf9b;
+      letter-spacing: 0.05em;
+    }
+
+    .subcopy {
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 18px;
+      padding: 16px 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.82rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(90deg, var(--orange), var(--red), var(--orange-2));
+      box-shadow: 0 14px 44px rgba(255, 106, 0, 0.24);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-card,
+    .section-card,
+    .notify-card,
+    .mini-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.34);
+    }
+
+    .hero-card {
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -25% auto auto -18%;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(255, 106, 0, 0.18), transparent 62%);
+      filter: blur(14px);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -18% -18% auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(207, 47, 17, 0.14), transparent 62%);
+      filter: blur(12px);
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .card-kicker {
+      color: #ffc38f;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      border: 1px solid rgba(255, 141, 43, 0.25);
+      background: rgba(255, 106, 0, 0.08);
+      color: #ffd7b4;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .meteor-box {
+      position: relative;
+      z-index: 1;
+      height: 420px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at center, rgba(255,106,0,0.22), rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.92) 70%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .meteor-trail {
+      position: absolute;
+      width: 240px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,140,43,0.0), rgba(255,140,43,0.7), rgba(207,47,17,0.0));
+      transform: rotate(-22deg);
+      filter: blur(16px);
+      left: 18%;
+      top: 44%;
+    }
+
+    .meteor {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      position: relative;
+      transform: rotate(-16deg);
+      background:
+        radial-gradient(circle at 35% 35%, #ffb14a 0%, #ff7a1b 18%, #b43a14 40%, #411708 70%, #120b07 100%);
+      box-shadow:
+        0 0 0 10px rgba(255, 141, 43, 0.08),
+        0 0 60px rgba(255, 106, 0, 0.32),
+        0 0 120px rgba(207, 47, 17, 0.14);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 26px;
+    }
+
+    .cube {
+      border-radius: 9px;
+      background:
+        linear-gradient(145deg, #ffb04a 0%, #ba4718 38%, #30150b 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 8px 14px rgba(0,0,0,0.28);
+      border: 1px solid rgba(0,0,0,0.18);
+    }
+
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .mini-card .label {
+      font-size: 0.72rem;
+      color: #ffc38f;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .mini-card h3 {
+      font-size: 1.02rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .mini-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+
+    .section {
+      padding: 22px 0 0;
+    }
+
+    .section-card {
+      padding: 34px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .section-kicker {
+      color: #ffc38f;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.4vw, 3.8rem);
+      font-weight: 900;
+    }
+
+    .section-copy {
+      color: #d7d0c8;
+      line-height: 1.8;
+      font-size: 1.03rem;
+      margin-top: 18px;
+    }
+
+    .feature-grid,
+    .detail-grid,
+    .food-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .detail-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature,
+    .detail {
+      border-radius: 22px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+    }
+
+    .feature h3,
+    .detail h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .feature p,
+    .detail p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .section-two {
+      padding: 26px 0 0;
+    }
+
+    .section-two-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .food-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .food {
+      border: 1px solid rgba(255, 141, 43, 0.16);
+      background: rgba(255, 106, 0, 0.08);
+      color: #ffdfbf;
+      border-radius: 999px;
+      padding: 12px 14px;
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    .notify {
+      padding: 28px 0 80px;
+    }
+
+    .notify-card {
+      position: relative;
+      overflow: hidden;
+      padding: 40px 28px;
+      text-align: center;
+    }
+
+    .notify-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.16), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(207,47,17,0.14), transparent 28%);
+      pointer-events: none;
+    }
+
+    .notify-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    h4 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 900;
+      margin-top: 12px;
+    }
+
+    .notify-copy {
+      color: #ddd6ce;
+      line-height: 1.8;
+      margin: 18px auto 0;
+      max-width: 720px;
+    }
+
+    .notify-form {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .notify-form input {
+      width: min(420px, 100%);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .notify-form input::placeholder {
+      color: #938d86;
+    }
+
+    .notify-note {
+      margin-top: 16px;
+      color: #938d86;
+      font-size: 0.77rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 22px 0 28px;
+      color: #8f8981;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-grid,
+      .section-two-grid,
+      .feature-grid,
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .meteor-box {
+        height: 360px;
+      }
+
+      .hero-bottom {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+      }
+
+      .nav a {
+        margin-left: 0;
+        margin-right: 14px;
+      }
+
+      .hero,
+      .notify {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .section-card,
+      .notify-card,
+      .hero-card {
+        padding: 20px;
+      }
+
+      .food-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .meteor {
+        width: 210px;
+        height: 210px;
+        padding: 22px;
+      }
+
+      .meteor-box {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body class="noise">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">MEAT<span>YORITE</span></div>
+      <nav class="nav">
+        <a href="#product">Product</a>
+        <a href="#uses">Uses</a>
+        <a href="#notify">Coming Soon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">From the pit to orbit</div>
+            <h1>MEATYORITE</h1>
+            <div class="fire-line"></div>
+
+            <p class="lead">
+              The smoked meat snack built for flavor impact. Craft BBQ meat bites that hit meals hard and fuel life fast.
+            </p>
+
+            <div class="taglines">
+              <div>Flavor Impact</div>
+              <div>Add Meat Anytime In No Time</div>
+              <div>Real Smoke. Real Meat.</div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-xl">
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-orange-500/30 via-red-500/20 to-transparent blur-2xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-orange-500/20 bg-zinc-950/80 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.55)] backdrop-blur">
-                <div className="mb-5 flex items-center justify-between">
-                  <div>
-                    <div className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-300">Coming Soon</div>
-                    <div className="mt-2 text-2xl font-black uppercase text-white">Meteor Flavor Strike</div>
-                  </div>
-                  <div className="rounded-full border border-orange-400/30 bg-orange-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-orange-200">
-                    Shelf-Stable
-                  </div>
-                </div>
+            <p class="subcopy">
+              MEATYORITE is a bold new category of ready-to-eat smoked meat bites made to be eaten on the go or dropped onto tacos, nachos, eggs, ramen, rice bowls, pizza, and more. Smoky, versatile, dramatic, and unforgettable on the shelf.
+            </p>
 
-                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,110,20,0.22),rgba(0,0,0,0.25)_45%,rgba(0,0,0,0.95))]">
-                  <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_30%),radial-gradient(circle_at_30%_30%,rgba(255,120,0,0.22),transparent_18%),radial-gradient(circle_at_70%_60%,rgba(255,40,0,0.18),transparent_24%)]" />
-                  <div className="absolute top-12 right-10 h-24 w-24 rounded-full bg-orange-500/30 blur-2xl" />
-                  <div className="absolute left-10 bottom-16 h-20 w-20 rounded-full bg-red-500/25 blur-2xl" />
-
-                  <div className="relative flex h-60 w-60 items-center justify-center rounded-full border border-orange-400/20 bg-gradient-to-br from-orange-600 via-red-600 to-zinc-900 shadow-[0_0_90px_rgba(255,98,0,0.45)]">
-                    <div className="absolute inset-3 rounded-full border border-yellow-300/10" />
-                    <div className="absolute -left-10 top-20 h-5 w-28 rotate-[-20deg] rounded-full bg-orange-400/60 blur-xl" />
-                    <div className="absolute right-[-1.5rem] top-10 h-4 w-24 rotate-[30deg] rounded-full bg-red-400/60 blur-xl" />
-                    <div className="grid grid-cols-4 gap-2 p-6">
-                      {Array.from({ length: 12 }).map((_, i) => (
-                        <div
-                          key={i}
-                          className="h-10 w-10 rounded-md border border-black/10 bg-gradient-to-br from-amber-500 via-orange-700 to-stone-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_16px_rgba(0,0,0,0.35)]"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300">Core product</div>
-                    <div className="mt-2 text-lg font-black uppercase text-white">Smoked Meat Bites</div>
-                    <p className="mt-2 text-sm leading-6 text-zinc-400">
-                      Tender, smoky pork shoulder cubes and future flavor drops built for snacking or adding to meals.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300">Brand promise</div>
-                    <div className="mt-2 text-lg font-black uppercase text-white">Add meat to anything</div>
-                    <p className="mt-2 text-sm leading-6 text-zinc-400">
-                      Turn simple food into a bold BBQ experience in seconds.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#notify">Get Launch Updates</a>
+              <a class="btn btn-secondary" href="#product">See The Concept</a>
             </div>
           </div>
-        </section>
 
-        <section id="product" className="mx-auto max-w-7xl px-6 pb-12 md:px-10">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_60px_rgba(0,0,0,0.3)] backdrop-blur md:p-10">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+          <div class="hero-card">
+            <div class="card-top">
               <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.28em] text-orange-300">What is MEATYORITE?</div>
-                <h2 className="mt-3 text-3xl font-black uppercase leading-tight text-white md:text-5xl">
-                  A meat meteor strike for everyday meals
-                </h2>
-                <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 md:text-lg">
-                  MEATYORITE is built around one unforgettable idea: a meteor made of delicious smoked meat cubes crashing into food and creating an explosion of flavor. It is fast protein, real BBQ craft, and convenience-store energy in one bold format.
+                <div class="card-kicker">Coming Soon</div>
+                <div class="card-title">Meteor Flavor Strike</div>
+              </div>
+              <div class="pill">Shelf-Stable</div>
+            </div>
+
+            <div class="meteor-box">
+              <div class="meteor-trail"></div>
+              <div class="meteor">
+                <div class="cube"></div><div class="cube"></div><div class="cube"></div><div class="cube"></div>
+                <div class="cube"></div><div class="cube"></div><div class="cube"></div><div class="cube"></div>
+                <div class="cube"></div><div class="cube"></div><div class="cube"></div><div class="cube"></div>
+                <div class="cube"></div><div class="cube"></div><div class="cube"></div><div class="cube"></div>
+              </div>
+            </div>
+
+            <div class="hero-bottom">
+              <div class="mini-card">
+                <div class="label">Core Product</div>
+                <h3>Smoked Meat Bites</h3>
+                <p>
+                  Tender, smoky pork shoulder cubes and future flavor drops built for snacking or adding to meals.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
-                {features.map((feature) => (
-                  <div
-                    key={feature.title}
-                    className="rounded-[1.5rem] border border-orange-500/15 bg-zinc-950/70 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
-                  >
-                    <div className="text-lg font-black uppercase text-white">{feature.title}</div>
-                    <p className="mt-3 text-sm leading-6 text-zinc-400">{feature.text}</p>
-                  </div>
-                ))}
+              <div class="mini-card">
+                <div class="label">Brand Promise</div>
+                <h3>Add Meat To Anything</h3>
+                <p>
+                  Turn simple food into a bold BBQ experience in seconds.
+                </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+    <section class="section" id="product">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-grid">
             <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.28em] text-orange-300">Flavor targets</div>
-              <h3 className="mt-3 text-3xl font-black uppercase text-white md:text-5xl">
-                Drop it on everything
-              </h3>
-              <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 md:text-lg">
+              <div class="section-kicker">What is MEATYORITE?</div>
+              <h2>A meat meteor strike for everyday meals</h2>
+              <p class="section-copy">
+                MEATYORITE is built around one unforgettable idea: a meteor made of delicious smoked meat cubes crashing into food and creating an explosion of flavor. It is fast protein, real BBQ craft, and convenience-store energy in one bold format.
+              </p>
+            </div>
+
+            <div class="feature-grid">
+              <div class="feature">
+                <h3>Real smoked meat</h3>
+                <p>
+                  Craft BBQ meat bites made for real flavor, real convenience, and real cravings.
+                </p>
+              </div>
+
+              <div class="feature">
+                <h3>Ready when you are</h3>
+                <p>
+                  Eat them straight from the pack or drop them onto your next meal for instant impact.
+                </p>
+              </div>
+
+              <div class="feature">
+                <h3>Built for anywhere</h3>
+                <p>
+                  Convenience stores, grocery shelves, tailgates, camping trips, game days, and fast-paced lives.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-two" id="uses">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-two-grid">
+            <div>
+              <div class="section-kicker">Flavor targets</div>
+              <h2>Drop it on everything</h2>
+              <p class="section-copy">
                 Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {foods.map((food) => (
-                  <span
-                    key={food}
-                    className="rounded-full border border-orange-400/20 bg-orange-500/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.16em] text-orange-100"
-                  >
-                    {food}
-                  </span>
-                ))}
+
+              <div class="food-grid">
+                <div class="food">Tacos</div>
+                <div class="food">Nachos</div>
+                <div class="food">Ramen</div>
+                <div class="food">Baked Potatoes</div>
+                <div class="food">Pizza</div>
+                <div class="food">Mac &amp; Cheese</div>
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  title: 'Craft BBQ energy',
-                  text: 'Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.',
-                },
-                {
-                  title: 'Impulse buy appeal',
-                  text: 'Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.',
-                },
-                {
-                  title: 'Protein with personality',
-                  text: 'Not another boring meat snack. This is a flavor weapon with a story people remember.',
-                },
-                {
-                  title: 'Coming soon',
-                  text: 'We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.',
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6"
-                >
-                  <div className="text-lg font-black uppercase text-white">{item.title}</div>
-                  <p className="mt-3 text-sm leading-6 text-zinc-400">{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+            <div class="detail-grid">
+              <div class="detail">
+                <h3>Craft BBQ energy</h3>
+                <p>
+                  Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.
+                </p>
+              </div>
 
-        <section id="notify" className="mx-auto max-w-5xl px-6 pb-20 md:px-10 md:pb-28">
-          <div className="relative overflow-hidden rounded-[2rem] border border-orange-500/20 bg-gradient-to-br from-zinc-950 via-black to-zinc-900 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.55)] md:p-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,110,20,0.25),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(255,40,0,0.18),transparent_25%)]" />
-            <div className="relative z-10 text-center">
-              <div className="text-sm font-semibold uppercase tracking-[0.32em] text-orange-300">Coming soon</div>
-              <h4 className="mt-4 text-3xl font-black uppercase text-white md:text-5xl">
-                Be first when the meteor lands
-              </h4>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">
-                MEATYORITE is gearing up for launch. Follow the brand, grab early updates, and be ready for the first flavor strike.
-              </p>
+              <div class="detail">
+                <h3>Impulse buy appeal</h3>
+                <p>
+                  Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.
+                </p>
+              </div>
 
-              <form className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 sm:flex-row">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="h-14 flex-1 rounded-2xl border border-white/10 bg-white/5 px-5 text-base text-white placeholder:text-zinc-500 outline-none ring-0 transition focus:border-orange-400"
-                />
-                <button
-                  type="submit"
-                  className="h-14 rounded-2xl bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 px-8 text-sm font-extrabold uppercase tracking-[0.2em] text-white shadow-[0_10px_40px_rgba(255,95,31,0.35)] transition hover:scale-[1.02]"
-                >
-                  Notify Me
-                </button>
-              </form>
+              <div class="detail">
+                <h3>Protein with personality</h3>
+                <p>
+                  Not another boring meat snack. This is a flavor weapon with a story people remember.
+                </p>
+              </div>
 
-              <div className="mt-5 text-xs uppercase tracking-[0.22em] text-zinc-500">
-                Flavor Impact • Add Meat Anytime • Real Smoke. Real Meat.
+              <div class="detail">
+                <h3>Coming soon</h3>
+                <p>
+                  We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.
+                </p>
               </div>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
+    </section>
+
+    <section class="notify" id="notify">
+      <div class="container">
+        <div class="notify-card">
+          <div class="notify-inner">
+            <div class="section-kicker">Coming Soon</div>
+            <h4>Be first when the meteor lands</h4>
+            <p class="notify-copy">
+              MEATYORITE is gearing up for launch. Follow the brand, grab early updates, and be ready for the first flavor strike.
+            </p>
+
+            <form class="notify-form" onsubmit="event.preventDefault(); alert('Coming soon. Connect your email platform here.');">
+              <input type="email" placeholder="Enter your email" required />
+              <button class="btn btn-primary" type="submit">Notify Me</button>
+            </form>
+
+            <div class="notify-note">
+              Flavor Impact • Add Meat Anytime • Real Smoke. Real Meat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 MEATYORITE</div>
+      <div>From the pit to orbit.</div>
     </div>
-  );
-}
+  </footer>
+</body>
+</html>
