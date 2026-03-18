@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meatyer Meat Co | Coming Soon</title>
-  
-<link rel="shortcut icon" href="assets/favicon/favicon.ico?v=1">
-<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico?v=1">
-<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png?v=1">
-<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png?v=1">
-  
+
+  <link rel="shortcut icon" href="assets/favicon/favicon.ico?v=1">
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png?v=1">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png?v=1">
+
   <meta
     name="description"
-    content="Meatyer Meat Co is the smoked meat snack built for flavor impact. Real smoke. Real meat. Add meat anytime in no time."
+    content="Meatyer Meat Co makes real wood smoked meat bites in a shelf-stable retort pouch so you can add craft BBQ flavor to anything in seconds."
   />
+
   <style>
     :root {
       --bg: #050505;
@@ -31,13 +32,8 @@
       --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -69,8 +65,7 @@
     }
 
     .noise::after {
-      background:
-        linear-gradient(transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+      background: linear-gradient(transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
       opacity: 0.35;
     }
 
@@ -81,6 +76,7 @@
       z-index: 1;
     }
 
+    /* Topbar */
     .topbar {
       position: sticky;
       top: 0;
@@ -107,10 +103,6 @@
       color: #fff;
     }
 
-    .brand span {
-      color: var(--orange-2);
-    }
-
     .nav a {
       color: var(--muted);
       text-decoration: none;
@@ -121,19 +113,18 @@
       letter-spacing: 0.12em;
     }
 
-    .nav a:hover {
-      color: #fff;
-    }
+    .nav a:hover { color: #fff; }
 
-    .hero {
-      padding: 72px 0 52px;
-    }
+    /* Hero */
+    .hero { padding: 64px 0 52px; }
+
+    .hero .container { padding-top: 8px; }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
       gap: 34px;
-      align-items: center;
+      align-items: start; /* UPDATED for better balance */
     }
 
     .eyebrow {
@@ -157,16 +148,11 @@
       letter-spacing: -0.02em;
     }
 
-    h1 {
-      font-size: clamp(3.3rem, 8vw, 6.7rem);
-      font-weight: 900;
-    }
-
     .fire-line {
       width: 170px;
       height: 6px;
       border-radius: 999px;
-      margin: 20px 0 24px;
+      margin: 18px 0 22px;
       background: linear-gradient(90deg, var(--orange), var(--red), #ffcc80);
       box-shadow: var(--glow);
     }
@@ -179,7 +165,7 @@
     }
 
     .taglines {
-      margin: 26px 0 24px;
+      margin: 24px 0 20px;
       display: grid;
       gap: 10px;
     }
@@ -203,7 +189,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .btn {
@@ -223,10 +209,7 @@
       cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.96; }
 
     .btn-primary {
       color: #fff;
@@ -240,6 +223,7 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* Cards */
     .hero-card,
     .section-card,
     .notify-card,
@@ -314,70 +298,6 @@
       white-space: nowrap;
     }
 
-    .meteor-box {
-      position: relative;
-      z-index: 1;
-      height: 420px;
-      border-radius: 26px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        radial-gradient(circle at center, rgba(255,106,0,0.22), rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.92) 70%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .meteor-trail {
-      position: absolute;
-      width: 240px;
-      height: 30px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(255,140,43,0.0), rgba(255,140,43,0.7), rgba(207,47,17,0.0));
-      transform: rotate(-22deg);
-      filter: blur(16px);
-      left: 18%;
-      top: 44%;
-    }
-
-    .meteor {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      position: relative;
-      transform: rotate(-16deg);
-      background:
-        radial-gradient(circle at 35% 35%, #ffb14a 0%, #ff7a1b 18%, #b43a14 40%, #411708 70%, #120b07 100%);
-      box-shadow:
-        0 0 0 10px rgba(255, 141, 43, 0.08),
-        0 0 60px rgba(255, 106, 0, 0.32),
-        0 0 120px rgba(207, 47, 17, 0.14);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      padding: 26px;
-    }
-
-    .cube {
-      border-radius: 9px;
-      background:
-        linear-gradient(145deg, #ffb04a 0%, #ba4718 38%, #30150b 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.18),
-        0 8px 14px rgba(0,0,0,0.28);
-      border: 1px solid rgba(0,0,0,0.18);
-    }
-
-    .hero-bottom {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
     .mini-card {
       padding: 18px;
       background: rgba(255,255,255,0.04);
@@ -405,13 +325,10 @@
       font-size: 0.94rem;
     }
 
-    .section {
-      padding: 22px 0 0;
-    }
+    /* Sections */
+    .section { padding: 22px 0 0; }
 
-    .section-card {
-      padding: 34px;
-    }
+    .section-card { padding: 34px; }
 
     .section-grid {
       display: grid;
@@ -441,19 +358,10 @@
       margin-top: 18px;
     }
 
-    .feature-grid,
-    .detail-grid,
-    .food-grid {
+    .feature-grid {
       display: grid;
       gap: 16px;
-    }
-
-    .feature-grid {
       grid-template-columns: repeat(3, 1fr);
-    }
-
-    .detail-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
 
     .feature,
@@ -479,157 +387,204 @@
       font-size: 0.95rem;
     }
 
-.section-two {
-  padding: 26px 0 0;
-}
+    /* Uses (Food Grid) */
+    .section-two { padding: 26px 0 0; }
 
-.section-two-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.food-image-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
-  margin-top: 10px;
-}
-
-.food-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.28);
-  padding: 0;
-  cursor: pointer;
-  appearance: none;
-}
-
-.food-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.28s ease;
-}
-
-.food-card:hover img {
-  transform: scale(1.05);
-}
-
-.food-card-label {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: rgba(0,0,0,0.72);
-  border: 1px solid rgba(255,106,0,0.22);
-  color: #ffcf9b;
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-  backdrop-filter: blur(6px);
-}
-
-.detail-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.food-modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  z-index: 1000;
-}
-
-.food-modal.active {
-  display: block;
-}
-
-.food-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(6px);
-}
-
-.food-modal-content {
-  position: relative;
-  z-index: 1;
-  width: min(1080px, calc(100% - 32px));
-  margin: 5vh auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  overflow: hidden;
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: #0d0d0d;
-  box-shadow: 0 30px 100px rgba(0,0,0,0.5);
-}
-
-.food-modal-content img {
-  width: 100%;
-  height: 100%;
-  min-height: 460px;
-  object-fit: cover;
-  display: block;
-}
-
-.food-modal-copy {
-  padding: 36px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.food-modal-copy h3 {
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 0 0 16px;
-  line-height: 1;
-}
-
-.food-modal-copy p {
-  margin: 0;
-  color: #d7d0c8;
-  line-height: 1.8;
-  font-size: 1rem;
-}
-
-.food-modal-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 44px;
-  height: 44px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.65);
-  color: #fff;
-  font-size: 1.7rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.food-modal-close:hover {
-  background: rgba(255,106,0,0.18);
-}
-
-    .notify {
-      padding: 28px 0 80px;
+    .food-image-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 10px;
     }
+
+    .food-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+      padding: 0;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .food-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.28s ease;
+    }
+
+    .food-card:hover img { transform: scale(1.05); }
+
+    .food-card-label {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.72);
+      border: 1px solid rgba(255,106,0,0.22);
+      color: #ffcf9b;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    /* Food Modal */
+    .food-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      z-index: 1000;
+    }
+
+    .food-modal.active { display: block; }
+
+    .food-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(6px);
+    }
+
+    .food-modal-content {
+      position: relative;
+      z-index: 1;
+      width: min(1080px, calc(100% - 32px));
+      margin: 5vh auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0d0d0d;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+    }
+
+    .food-modal-content img {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .food-modal-copy {
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .modal-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffd3b0;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .food-modal-copy h3 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .modal-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .modal-pill {
+      border: 1px solid rgba(255, 141, 43, 0.25);
+      background: rgba(255, 106, 0, 0.10);
+      color: #ffd7b4;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .food-modal-copy p {
+      margin: 0;
+      color: #d7d0c8;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .modal-subhead {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffcf9b;
+    }
+
+    .modal-steps {
+      margin: 0;
+      padding-left: 18px;
+      color: #d7d0c8;
+      line-height: 1.7;
+    }
+
+    .modal-steps li { margin: 6px 0; }
+
+    .modal-callout {
+      margin-top: 6px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,106,0,0.22);
+      background: rgba(255,255,255,0.04);
+      color: #e2ddd6;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .food-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      font-size: 1.7rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .food-modal-close:hover { background: rgba(255,106,0,0.18); }
+
+    /* Notify */
+    .notify { padding: 28px 0 80px; }
 
     .notify-card {
       position: relative;
@@ -687,11 +642,9 @@
       outline: none;
     }
 
-    .notify-form input::placeholder {
-      color: #938d86;
-    }
+    .notify-form input::placeholder { color: #938d86; }
 
-        .notify-note {
+    .notify-note {
       margin-top: 18px;
       color: #938d86;
       font-size: 0.77rem;
@@ -735,6 +688,7 @@
       color: #ffffff;
     }
 
+    /* Footer */
     footer {
       border-top: 1px solid rgba(255,255,255,0.05);
       padding: 26px 0 32px;
@@ -777,9 +731,7 @@
       text-align: center;
     }
 
-    .footer-social {
-      justify-content: flex-end;
-    }
+    .footer-social { justify-content: flex-end; }
 
     .footer-social a {
       color: #b9b1a8;
@@ -791,171 +743,114 @@
       transition: color 0.18s ease, opacity 0.18s ease;
     }
 
-    .footer-social a:hover {
-      color: #ffffff;
-      opacity: 1;
+    .footer-social a:hover { color: #ffffff; opacity: 1; }
+
+    .footer-dot { color: rgba(255,255,255,0.18); }
+
+    /* Hero logo */
+    .hero-logo-main { margin: 6px 0 12px; }
+
+    .hero-logo-main img {
+      width: min(480px, 100%); /* UPDATED */
+      height: auto;
+      display: block;
     }
 
-    .footer-dot {
-      color: rgba(255,255,255,0.18);
+    /* Product stack (2 SKUs) */
+    .product-stack {
+      display: grid;
+      gap: 22px;
+      position: relative;
+      z-index: 1;
     }
 
-.hero-logo-main {
-  margin: 8px 0 16px;
-}
+    .mini-product img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+      margin-bottom: 14px;
+    }
 
-.hero-logo-main img {
-  width: min(620px, 100%);
-  height: auto;
-  display: block;
-}
+    .mini-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
 
-@media (max-width: 980px) {
-  .hero-grid,
-  .section-grid,
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+    .mini-product + .mini-product {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      margin-top: 6px;
+    }
 
-  .food-image-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .detail-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+      .food-image-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
+      .food-modal-content { grid-template-columns: 1fr; }
 
-  .food-modal-content {
-    grid-template-columns: 1fr;
-  }
+      .hero { padding-top: 52px; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
 
-  .hero {
-    padding-top: 52px;
-  }
+      .footer-brand,
+      .footer-tagline,
+      .footer-social { justify-content: center; }
+    }
 
-  .meteor-box {
-    height: 360px;
-  }
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+      }
 
-  .hero-bottom {
-    grid-template-columns: 1fr;
-  }
+      .mini-card-grid { grid-template-columns: 1fr; }
+      .food-image-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
 
-  .footer-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+      .food-modal-content img { min-height: 260px; }
+      .food-modal-copy { padding: 22px 18px; }
 
-  .footer-brand,
-  .footer-tagline,
-  .footer-social {
-    justify-content: center;
-  }
-}
+      .nav a { margin-left: 0; margin-right: 14px; }
 
-.product-stack {
-  display: grid;
-  gap: 22px;
-  position: relative;
-  z-index: 1;
-}
+      .hero,
+      .notify { padding-left: 0; padding-right: 0; }
 
-.mini-product img {
-  width: 100%;
-  display: block;
-  border-radius: 18px;
-  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
-  margin-bottom: 14px;
-}
+      .section-card,
+      .notify-card,
+      .hero-card { padding: 20px; }
 
-.mini-card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
+      .social-links a {
+        min-width: 0;
+        width: 100%;
+      }
 
-.mini-product + .mini-product {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 20px;
-}
-    
-@media (max-width: 640px) {
-  .topbar-inner {
-    flex-direction: column;
-    align-items: start;
-    gap: 12px;
-  }
-
-  .mini-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .food-image-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .food-modal-content img {
-    min-height: 260px;
-  }
-
-  .food-modal-copy {
-    padding: 22px 18px;
-  }
-
-  .nav a {
-    margin-left: 0;
-    margin-right: 14px;
-  }
-
-  .hero,
-  .notify {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .section-card,
-  .notify-card,
-  .hero-card {
-    padding: 20px;
-  }
-
-  .meteor {
-    width: 210px;
-    height: 210px;
-    padding: 22px;
-  }
-
-  .meteor-box {
-    height: 320px;
-  }
-
-  .social-links a {
-    min-width: 0;
-    width: 100%;
-  }
-
-  .footer-social {
-    gap: 10px 14px;
-  }
-}
+      .footer-social { gap: 10px 14px; }
+    }
   </style>
 </head>
+
 <body class="noise">
   <header class="topbar">
     <div class="topbar-inner">
-    <div class="brand" style="display:flex;align-items:center;gap:10px;">
-  <img 
-    src="images/Logo real wood smoked.png" 
-    alt="Meatyer Meat Co logo"
-    style="height:40px;width:auto;display:block;"
-  />
-</div>
+      <div class="brand" style="display:flex;align-items:center;gap:10px;">
+        <img
+          src="images/Logo real wood smoked.png"
+          alt="Meatyer Meat Co logo"
+          style="height:56px;width:auto;display:block;"  <!-- UPDATED -->
+        />
+      </div>
+
       <nav class="nav">
         <a href="#product">Product</a>
+        <a href="#safety">Safety</a>
         <a href="#uses">Uses</a>
         <a href="#notify">Coming Soon</a>
       </nav>
@@ -963,19 +858,24 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="hero-grid">
+
+          <!-- LEFT -->
           <div>
             <div class="eyebrow">From the pit to orbit</div>
-           <div class="hero-logo-main">
-  <img src="images/Logo real wood smoked.png" alt="Meatyer Meat Co logo">
-</div>
+
+            <div class="hero-logo-main">
+              <img src="images/Logo real wood smoked.png" alt="Meatyer Meat Co logo">
+            </div>
+
             <div class="fire-line"></div>
 
-           <p class="lead">
-  Real wood smoked meat bites built to upgrade any meal fast. Craft BBQ flavor without smoking meat all day.
-</p>
+            <p class="lead">
+              Real wood smoked meat bites built to upgrade any meal fast. Craft BBQ flavor without smoking meat all day.
+            </p>
 
             <div class="taglines">
               <div>Craft BBQ. Ready Now.</div>
@@ -984,8 +884,8 @@
             </div>
 
             <p class="subcopy">
-  Meatyer Meat Co makes real wood smoked meat bites in a retort pouch so you can add craft BBQ flavor to tacos, nachos, eggs, ramen, pizza, sandwiches, and more in seconds.
-</p>
+              Meatyer Meat Co makes real wood smoked meat bites in a retort pouch so you can add craft BBQ flavor to tacos, nachos, eggs, ramen, pizza, sandwiches, and more in seconds.
+            </p>
 
             <div class="btn-row">
               <a class="btn btn-primary" href="#notify">Get Launch Updates</a>
@@ -993,202 +893,217 @@
             </div>
           </div>
 
-<div class="hero-card">
-  <div class="card-top">
-    <div>
-      <div class="card-kicker">Coming Soon</div>
-      <div class="card-title">Two Ways To Smoke</div>
-    </div>
-    <div class="pill">Shelf-Stable</div>
-  </div>
+          <!-- RIGHT -->
+          <div class="hero-card">
+            <div class="card-top">
+              <div>
+                <div class="card-kicker">Launching Soon</div>
+                <div class="card-title">Two Ways To Smoke</div>
+              </div>
+              <div class="pill">Shelf-Stable</div>
+            </div>
 
-  <div class="product-stack">
+            <div class="product-stack">
+              <!-- BEEF -->
+              <div class="mini-product">
+                <img
+                  src="images/Beef Brisket.png"
+                  alt="Meatyer Meat Co beef brisket burnt ends smoked meat bites pouch"
+                />
 
-    <!-- BEEF -->
-    <div class="mini-product">
-      <img 
-        src="images/Beef Brisket.png"
-        alt="Meatyer Meat Co beef brisket burnt ends smoked meat bites pouch"
-      />
+                <div class="mini-card-grid">
+                  <div class="mini-card">
+                    <div class="label">Core Product</div>
+                    <h3>Beef Brisket Burnt Ends</h3>
+                    <p>Real wood smoked brisket burnt ends with rich bark and bold BBQ flavor.</p>
+                  </div>
 
-      <div class="mini-card-grid">
-        <div class="mini-card">
-          <div class="label">Core Product</div>
-          <h3>Beef Brisket Burnt Ends</h3>
-          <p>
-            Real wood smoked brisket burnt ends with rich bark and bold BBQ flavor.
-          </p>
-        </div>
+                  <div class="mini-card">
+                    <div class="label">Use Case</div>
+                    <h3>Add To Anything</h3>
+                    <p>Tacos, nachos, eggs, pizza, sandwiches and more.</p>
+                  </div>
+                </div>
+              </div>
 
-        <div class="mini-card">
-          <div class="label">Use Case</div>
-          <h3>Add To Anything</h3>
-          <p>
-            Tacos, nachos, eggs, pizza, sandwiches and more.
-          </p>
-        </div>
-      </div>
-    </div>
+              <!-- PORK -->
+              <div class="mini-product">
+                <img
+                  src="images/Pork Shoulder.png"
+                  alt="Meatyer Meat Co pork shoulder smoked meat bites pouch"
+                />
 
-    <!-- PORK -->
-    <div class="mini-product">
-      <img 
-        src="images/Pork Shoulder.png"
-        alt="Meatyer Meat Co pork shoulder smoked meat bites pouch"
-      />
+                <div class="mini-card-grid">
+                  <div class="mini-card">
+                    <div class="label">Core Product</div>
+                    <h3>Pork Shoulder Bites</h3>
+                    <p>Tender smoked pork with deep flavor and caramelized edges.</p>
+                  </div>
 
-      <div class="mini-card-grid">
-        <div class="mini-card">
-          <div class="label">Core Product</div>
-          <h3>Pork Shoulder Bites</h3>
-          <p>
-            Tender smoked pork with deep flavor and caramelized edges.
-          </p>
-        </div>
+                  <div class="mini-card">
+                    <div class="label">Use Case</div>
+                    <h3>Fast BBQ Upgrade</h3>
+                    <p>Perfect for bowls, sliders, tacos, or straight from the pouch.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /product-stack -->
+          </div><!-- /hero-card -->
 
-        <div class="mini-card">
-          <div class="label">Use Case</div>
-          <h3>Fast BBQ Upgrade</h3>
-          <p>
-            Perfect for bowls, sliders, tacos, or straight from the pouch.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
+        </div><!-- /hero-grid -->
+      </div><!-- /container -->
     </section>
 
+    <!-- PRODUCT -->
     <section class="section" id="product">
       <div class="container">
         <div class="section-card">
           <div class="section-grid">
             <div>
               <div class="section-kicker">What is Meatyer Meat Co?</div>
-<h2>Real wood smoked meat made easy</h2>
-<p class="section-copy">
-  Meatyer Meat Co delivers craft BBQ in a retort pouch so you can add smoked beef brisket burnt ends and other meat bites to meals fast, without smoking meat all day.
-</p>
+              <h2>Real wood smoked meat made easy</h2>
+              <p class="section-copy">
+                Meatyer Meat Co delivers craft BBQ in a retort pouch so you can add smoked beef brisket burnt ends and other meat bites to meals fast, without smoking meat all day.
+              </p>
             </div>
 
             <div class="feature-grid">
-             <div class="feature">
-  <h3>Real wood smoked</h3>
-  <p>
-    Authentic craft BBQ flavor with rich smoke, bark, and real meat texture.
-  </p>
-</div>
+              <div class="feature">
+                <h3>Real wood smoked</h3>
+                <p>Authentic craft BBQ flavor with rich smoke, bark, and real meat texture.</p>
+              </div>
 
-<div class="feature">
-  <h3>Ready in seconds</h3>
-  <p>
-    Heat it fast or use it straight from the pouch to upgrade your next meal.
-  </p>
-</div>
+              <div class="feature">
+                <h3>Ready in seconds</h3>
+                <p>Heat it fast or use it straight from the pouch to upgrade your next meal.</p>
+              </div>
 
-<div class="feature">
-  <h3>Built to upgrade meals</h3>
-  <p>
-    Tacos, nachos, eggs, ramen, pizza, sandwiches, and more.
-  </p>
-</div>
+              <div class="feature">
+                <h3>Built to upgrade meals</h3>
+                <p>Tacos, nachos, eggs, ramen, pizza, sandwiches, and more.</p>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </div><!-- /section-grid -->
+        </div><!-- /section-card -->
+      </div><!-- /container -->
     </section>
 
-<section class="section-two" id="uses">
-  <div class="container">
-    <div class="section-card">
+    <!-- SAFETY / SHELF STABLE PROCESS -->
+    <section class="section" id="safety">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-grid">
+            <div>
+              <div class="section-kicker">Food safety & shelf stability</div>
+              <h2>Shelf-stable by USDA-regulated retort processing</h2>
+              <p class="section-copy">
+                Meatyer is designed to be produced as a thermally processed, commercially sterile (TPCS) product: real wood smoked meat is sealed in a retort pouch and heat-processed using a validated scheduled process.
+                The result is a safe, stable product that can live on the shelf and hit meals fast when you need it.
+              </p>
+              <p class="section-copy" style="margin-top:14px;color:#b4aea6;">
+                After opening, treat like cooked meat and refrigerate.
+              </p>
+            </div>
 
-      <div class="section-kicker">Flavor targets</div>
-      <h2>Drop it on everything</h2>
-      <p class="section-copy">
-        Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
-      </p>
+            <div class="feature-grid">
+              <div class="feature">
+                <h3>Hermetically sealed pouch</h3>
+                <p>Sealed packaging is built to protect the contents during and after thermal processing.</p>
+              </div>
 
-      <!-- FULL WIDTH FOOD GRID -->
-      <div class="food-image-grid">
+              <div class="feature">
+                <h3>Scheduled thermal process</h3>
+                <p>A processing authority establishes time/temperature targets to achieve safety and stability.</p>
+              </div>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('Tacos', 'images/Tacos.png', 'Smoked meat bites turn tacos into a bold BBQ flavor hit in seconds.')">
-          <img src="images/Tacos.png">
-          <div class="food-card-label">Tacos</div>
-        </button>
+              <div class="feature">
+                <h3>HACCP + records</h3>
+                <p>USDA-inspected production uses HACCP controls, sanitation SOPs, and recordkeeping to verify the process.</p>
+              </div>
+            </div>
+          </div><!-- /section-grid -->
+        </div><!-- /section-card -->
+      </div><!-- /container -->
+    </section>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('Nachos', 'images/Nachos.png', 'Pile on real smoked meat for loaded nachos with instant protein and flavor impact.')">
-          <img src="images/Nachos.png">
-          <div class="food-card-label">Nachos</div>
-        </button>
+    <!-- USES -->
+    <section class="section-two" id="uses">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-kicker">Flavor targets</div>
+          <h2>Drop it on everything</h2>
+          <p class="section-copy">
+            Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
+          </p>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('Ramen', 'images/Ramen.png', 'Upgrade a simple bowl of ramen with smoky meat bites that make it feel like a real meal.')">
-          <img src="images/Ramen.png">
-          <div class="food-card-label">Ramen</div>
-        </button>
+          <div class="food-image-grid">
+            <button class="food-card" type="button" onclick="openFoodModal('tacos')">
+              <img src="images/Tacos.png" alt="Tacos with Meatyer smoked meat bites">
+              <div class="food-card-label">Tacos</div>
+            </button>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('Baked Potatoes', 'images/Potatoe.png', 'Top baked potatoes with smoked meat bites for a rich, hearty BBQ-style comfort meal.')">
-          <img src="images/Potatoe.png">
-          <div class="food-card-label">Baked Potatoes</div>
-        </button>
+            <button class="food-card" type="button" onclick="openFoodModal('nachos')">
+              <img src="images/Nachos.png" alt="Nachos with Meatyer smoked meat bites">
+              <div class="food-card-label">Nachos</div>
+            </button>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('Pizza', 'images/Pizza.png', 'Add real smoked meat to pizza for a dramatic flavor upgrade that feels indulgent and craveable.')">
-          <img src="images/Pizza.png">
-          <div class="food-card-label">Pizza</div>
-        </button>
+            <button class="food-card" type="button" onclick="openFoodModal('ramen')">
+              <img src="images/Ramen.png" alt="Ramen with Meatyer smoked meat bites">
+              <div class="food-card-label">Ramen</div>
+            </button>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('Mac &amp; Cheese', 'images/MacandCheese.png', 'Creamy mac and cheese gets a protein-packed BBQ boost with smoky, tender meat bites.')">
-          <img src="images/MacandCheese.png">
-          <div class="food-card-label">Mac &amp; Cheese</div>
-        </button>
+            <button class="food-card" type="button" onclick="openFoodModal('potatoes')">
+              <img src="images/Potatoe.png" alt="Baked potato with Meatyer smoked meat bites">
+              <div class="food-card-label">Baked Potatoes</div>
+            </button>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('BBQ Sandwich', 'images/BBQSandwich.png', 'Build a classic BBQ sandwich faster with ready-to-eat smoked meat bites and real pit flavor.')">
-          <img src="images/BBQSandwich.png">
-          <div class="food-card-label">BBQ Sandwich</div>
-        </button>
+            <button class="food-card" type="button" onclick="openFoodModal('pizza')">
+              <img src="images/Pizza.png" alt="Pizza with Meatyer smoked meat bites">
+              <div class="food-card-label">Pizza</div>
+            </button>
 
-        <button class="food-card" type="button"
-          onclick="openFoodModal('BBQ Sandwich 2', 'images/BBQSandwich2.png', 'Another craveable sandwich option showing how MEATYER upgrades easy, bold, everyday eating.')">
-          <img src="images/BBQSandwich2.png">
-          <div class="food-card-label">BBQ Sandwich 2</div>
-        </button>
+            <button class="food-card" type="button" onclick="openFoodModal('mac')">
+              <img src="images/MacandCheese.png" alt="Mac and cheese with Meatyer smoked meat bites">
+              <div class="food-card-label">Mac &amp; Cheese</div>
+            </button>
 
-      </div>
+            <button class="food-card" type="button" onclick="openFoodModal('bbqsandwich')">
+              <img src="images/BBQSandwich.png" alt="BBQ sandwich with Meatyer smoked meat bites">
+              <div class="food-card-label">BBQ Sandwich</div>
+            </button>
 
-      <!-- DETAILS BELOW (FULL WIDTH NOW) -->
-      <div class="detail-grid" style="margin-top:28px;">
-        <div class="detail">
-          <h3>Craft BBQ energy</h3>
-          <p>Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.</p>
-        </div>
+            <button class="food-card" type="button" onclick="openFoodModal('bbqsandwich2')">
+              <img src="images/BBQSandwich2.png" alt="BBQ sandwich variation with Meatyer smoked meat bites">
+              <div class="food-card-label">BBQ Sandwich 2</div>
+            </button>
+          </div>
 
-        <div class="detail">
-          <h3>Impulse buy appeal</h3>
-          <p>Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.</p>
-        </div>
+          <div class="detail-grid" style="margin-top:28px;">
+            <div class="detail">
+              <h3>Craft BBQ energy</h3>
+              <p>Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.</p>
+            </div>
 
-        <div class="detail">
-          <h3>Protein with personality</h3>
-          <p>Not another boring meat snack. This is a flavor weapon with a story people remember.</p>
-        </div>
+            <div class="detail">
+              <h3>Impulse buy appeal</h3>
+              <p>Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.</p>
+            </div>
 
-        <div class="detail">
-          <h3>Coming soon</h3>
-          <p>We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.</p>
-        </div>
-      </div>
+            <div class="detail">
+              <h3>Protein with personality</h3>
+              <p>Not another boring meat snack. This is a flavor weapon with a story people remember.</p>
+            </div>
 
-    </div>
-  </div>
-</section>
+            <div class="detail">
+              <h3>Coming soon</h3>
+              <p>We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.</p>
+            </div>
+          </div>
+        </div><!-- /section-card -->
+      </div><!-- /container -->
+    </section>
 
+    <!-- NOTIFY -->
     <section class="notify" id="notify">
       <div class="container">
         <div class="notify-card">
@@ -1201,13 +1116,13 @@
               Meatyer Meat Co is gearing up for launch. Follow the brand, grab early updates, and be ready for the first flavor strike.
             </p>
 
-            <form 
+            <form
               class="notify-form"
               action="https://formspree.io/f/xeerpwwk"
               method="POST"
               id="notifyForm"
             >
-              <input 
+              <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -1252,6 +1167,34 @@
     </section>
   </main>
 
+  <!-- FOOD MODAL MARKUP (REQUIRED FOR CLICK-TO-OPEN RECIPES) -->
+  <div class="food-modal" id="foodModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="food-modal-backdrop" onclick="closeFoodModal()"></div>
+
+    <div class="food-modal-content" role="document" aria-label="Recipe details">
+      <button class="food-modal-close" type="button" aria-label="Close recipe modal" onclick="closeFoodModal()">
+        ×
+      </button>
+
+      <img id="foodModalImage" src="" alt="">
+
+      <div class="food-modal-copy">
+        <div class="modal-kicker">Ready in seconds • Real wood smoked</div>
+
+        <h3 id="foodModalTitle"></h3>
+
+        <div class="modal-pills" id="foodModalPills"></div>
+
+        <p id="foodModalSummary"></p>
+
+        <div class="modal-subhead">Directions</div>
+        <ol class="modal-steps" id="foodModalSteps"></ol>
+
+        <div class="modal-callout" id="foodModalQuick"></div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1274,65 +1217,242 @@
     </div>
   </footer>
 
-<script>
-  function openFoodModal(title, image, text) {
-    const modal = document.getElementById("foodModal");
-    const modalTitle = document.getElementById("foodModalTitle");
-    const modalImage = document.getElementById("foodModalImage");
-    const modalText = document.getElementById("foodModalText");
+  <script>
+    // ------------------------------------------------------------
+    // FOOD RECIPES (Click a tile -> modal opens with steps + speed)
+    // ------------------------------------------------------------
+    const FOOD_RECIPES = {
+      tacos: {
+        title: "BBQ Tacos",
+        image: "images/Tacos.png",
+        pills: ["Total: ~7 min", "Meatyer: ~45 sec", "Beef or Pork"],
+        summary:
+          "Warm tortillas, add Meatyer, hit it with sauce + crunch. It tastes like you smoked all day—without smoking all day.",
+        steps: [
+          "Warm tortillas (skillet 20–30 seconds per side, or microwave 15 seconds).",
+          "Add Meatyer meat bites to a microwave-safe bowl and heat 30–45 seconds (or 60 seconds in a skillet).",
+          "Spoon hot Meatyer onto tortillas. Use beef brisket burnt ends for barky bite or pork shoulder for juicy pull.",
+          "Top with onion + cilantro + pickled jalapeños (or slaw).",
+          "Finish with your favorite BBQ sauce or a squeeze of lime."
+        ],
+        quick:
+          "Why it’s fast: the meat is already smoked + fully cooked—your only job is warming and assembling."
+      },
 
-    modalTitle.textContent = title;
-    modalImage.src = image;
-    modalImage.alt = title;
-    modalText.textContent = text;
+      nachos: {
+        title: "Loaded BBQ Nachos",
+        image: "images/Nachos.png",
+        pills: ["Total: ~8 min", "Meatyer: ~45 sec", "Oven or Air Fryer"],
+        summary:
+          "Chips + cheese + real smoked meat. This turns snack food into a meal in minutes.",
+        steps: [
+          "Spread tortilla chips on a sheet pan (or air fryer liner).",
+          "Sprinkle shredded cheese over chips.",
+          "Heat Meatyer in a microwave-safe bowl for 30–45 seconds and scatter over the chips.",
+          "Bake at 425°F for ~5 minutes (or air fry 3–4 minutes) until cheese melts.",
+          "Top with salsa, sour cream, jalapeños, and a drizzle of BBQ sauce."
+        ],
+        quick:
+          "Why it’s fast: you’re skipping raw meat cooking—Meatyer adds real BBQ meat instantly."
+      },
 
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
+      ramen: {
+        title: "Smoky Ramen Upgrade",
+        image: "images/Ramen.png",
+        pills: ["Total: ~6 min", "Meatyer: ~45 sec", "One pot"],
+        summary:
+          "A cheap bowl becomes a smoked-meat comfort meal. Salty broth + barky bites is the move.",
+        steps: [
+          "Cook ramen noodles according to the package directions.",
+          "While noodles cook, heat Meatyer in a microwave-safe bowl for 30–45 seconds.",
+          "Add Meatyer to the broth during the last minute so it warms through.",
+          "Optional: add soft-boiled egg, scallions, chili crisp, or corn.",
+          "Serve hot. Finish with black pepper or a small squeeze of citrus."
+        ],
+        quick:
+          "Why it’s fast: ramen is already quick—Meatyer is the protein shortcut that makes it feel legit."
+      },
 
-  function closeFoodModal() {
-    const modal = document.getElementById("foodModal");
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
+      potatoes: {
+        title: "BBQ Baked Potato",
+        image: "images/Potatoe.png",
+        pills: ["Total: ~8 min", "Meatyer: ~45 sec", "Microwave-friendly"],
+        summary:
+          "Fluffy potato + smoky meat + butter + cheese. Classic BBQ comfort without the cook time.",
+        steps: [
+          "Microwave a potato 6–8 minutes (flip halfway), or use a pre-baked potato from the store.",
+          "Split the potato and fluff the inside with a fork.",
+          "Heat Meatyer in a microwave-safe bowl for 30–45 seconds.",
+          "Pile Meatyer into the potato and add butter, cheese, and green onions.",
+          "Finish with BBQ sauce or hot sauce."
+        ],
+        quick:
+          "Why it’s fast: the potato is the slow part—and even that can be microwaved."
+      },
 
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-      closeFoodModal();
+      pizza: {
+        title: "BBQ Pizza Boost",
+        image: "images/Pizza.png",
+        pills: ["Total: ~10 min", "Meatyer: ~45 sec", "Any pizza works"],
+        summary:
+          "Add real smoked meat to frozen pizza or leftovers. Instant ‘BBQ joint’ energy.",
+        steps: [
+          "Heat oven per your pizza directions (or reheat leftover slices).",
+          "Heat Meatyer in a microwave-safe bowl for 30–45 seconds.",
+          "Before the last 2–3 minutes of baking, scatter Meatyer over the pizza so it warms and settles in.",
+          "Finish with extra BBQ sauce (optional) and sliced red onion.",
+          "Slice and serve."
+        ],
+        quick:
+          "Why it’s fast: you’re upgrading something that already cooks—Meatyer is just the topping."
+      },
+
+      mac: {
+        title: "Mac & Cheese With Real Smoke",
+        image: "images/MacandCheese.png",
+        pills: ["Total: ~7 min", "Meatyer: ~45 sec", "Stovetop or microwave"],
+        summary:
+          "Creamy mac with smoky meat bites turns into a high-protein comfort meal.",
+        steps: [
+          "Prepare mac & cheese (boxed, deli, or leftovers).",
+          "Heat Meatyer in a microwave-safe bowl for 30–45 seconds (or 60 seconds in a skillet).",
+          "Stir Meatyer into the mac while it's hot.",
+          "Optional: add a little BBQ sauce for a sweeter bite or hot sauce for heat.",
+          "Top with crushed chips or breadcrumbs if you want crunch."
+        ],
+        quick:
+          "Why it’s fast: you’re adding fully cooked smoked meat—no raw prep, no long cook."
+      },
+
+      bbqsandwich: {
+        title: "Classic BBQ Sandwich",
+        image: "images/BBQSandwich.png",
+        pills: ["Total: ~6 min", "Meatyer: ~45 sec", "Beef or Pork"],
+        summary:
+          "Warm bun + sauce + smoked meat. This is the ‘pit flavor’ shortcut for busy days.",
+        steps: [
+          "Toast a bun (skillet or toaster).",
+          "Heat Meatyer in a microwave-safe bowl for 30–45 seconds.",
+          "Toss Meatyer with a spoon of BBQ sauce.",
+          "Pile onto bun. Add pickles and slaw (optional).",
+          "Serve immediately."
+        ],
+        quick:
+          "Why it’s fast: it’s basically assemble-and-eat—Meatyer supplies the BBQ."
+      },
+
+      bbqsandwich2: {
+        title: "BBQ Slider Stack",
+        image: "images/BBQSandwich2.png",
+        pills: ["Total: ~8 min", "Meatyer: ~45 sec", "Party-ready"],
+        summary:
+          "Make a mini BBQ spread fast. Great for game days and quick lunches.",
+        steps: [
+          "Slice slider rolls and toast lightly.",
+          "Heat Meatyer in a microwave-safe bowl for 30–45 seconds.",
+          "Mix Meatyer with BBQ sauce and a splash of pickle juice (optional).",
+          "Build sliders with Meatyer + pickles + slaw.",
+          "Serve as a quick platter."
+        ],
+        quick:
+          "Why it’s fast: you’re turning rolls into BBQ sliders without running a smoker."
+      }
+    };
+
+    let lastFocusedElement = null;
+
+    function openFoodModal(key) {
+      const recipe = FOOD_RECIPES[key];
+      if (!recipe) return;
+
+      const modal = document.getElementById("foodModal");
+      const modalTitle = document.getElementById("foodModalTitle");
+      const modalImage = document.getElementById("foodModalImage");
+      const modalSummary = document.getElementById("foodModalSummary");
+      const modalPills = document.getElementById("foodModalPills");
+      const modalSteps = document.getElementById("foodModalSteps");
+      const modalQuick = document.getElementById("foodModalQuick");
+
+      lastFocusedElement = document.activeElement;
+
+      modalTitle.textContent = recipe.title;
+      modalImage.src = recipe.image;
+      modalImage.alt = recipe.title;
+      modalSummary.textContent = recipe.summary;
+
+      // Pills
+      modalPills.innerHTML = "";
+      (recipe.pills || []).forEach((t) => {
+        const pill = document.createElement("span");
+        pill.className = "modal-pill";
+        pill.textContent = t;
+        modalPills.appendChild(pill);
+      });
+
+      // Steps
+      modalSteps.innerHTML = "";
+      (recipe.steps || []).forEach((s) => {
+        const li = document.createElement("li");
+        li.textContent = s;
+        modalSteps.appendChild(li);
+      });
+
+      modalQuick.textContent = recipe.quick || "";
+
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      // Focus close button for accessibility
+      const closeBtn = modal.querySelector(".food-modal-close");
+      if (closeBtn) closeBtn.focus();
     }
-  });
 
-  const form = document.getElementById("notifyForm");
-  const success = document.getElementById("notifySuccess");
+    function closeFoodModal() {
+      const modal = document.getElementById("foodModal");
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
 
-  if (form) {
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
 
-      const data = new FormData(form);
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeFoodModal();
+    });
 
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: {
-            Accept: "application/json"
+    // ------------------------------------------------------------
+    // Launch list form (Formspree)
+    // ------------------------------------------------------------
+    const form = document.getElementById("notifyForm");
+    const success = document.getElementById("notifySuccess");
+
+    if (form) {
+      form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { Accept: "application/json" }
+          });
+
+          if (response.ok) {
+            form.style.display = "none";
+            success.style.display = "block";
+          } else {
+            alert("Something went wrong. Please try again.");
           }
-        });
-
-        if (response.ok) {
-          form.style.display = "none";
-          success.style.display = "block";
-        } else {
+        } catch (error) {
           alert("Something went wrong. Please try again.");
         }
-      } catch (error) {
-        alert("Something went wrong. Please try again.");
-      }
-    });
-  }
-</script>
+      });
+    }
+  </script>
 </body>
 </html>
