@@ -479,31 +479,34 @@
       font-size: 0.95rem;
     }
 
-    .section-two {
-      padding: 26px 0 0;
-    }
+.section-two {
+  padding: 26px 0 0;
+}
 
-    .section-two-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 26px;
-      align-items: center;
-    }
+.section-two-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
 
 .food-image-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 28px;
+  gap: 22px;
+  margin-top: 10px;
 }
 
 .food-card {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 22px;
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(255,255,255,0.03);
   box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
 }
 
 .food-card img {
@@ -511,7 +514,7 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-  transition: transform 0.25s ease;
+  transition: transform 0.28s ease;
 }
 
 .food-card:hover img {
@@ -521,34 +524,108 @@
 .food-card-label {
   position: absolute;
   left: 12px;
+  right: 12px;
   bottom: 12px;
   padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.7);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.72);
+  border: 1px solid rgba(255,106,0,0.22);
   color: #ffcf9b;
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 900;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
-    
-    .food-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 24px;
-    }
 
-    .food {
-      border: 1px solid rgba(255, 141, 43, 0.16);
-      background: rgba(255, 106, 0, 0.08);
-      color: #ffdfbf;
-      border-radius: 999px;
-      padding: 12px 14px;
-      text-align: center;
-      font-size: 0.86rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.11em;
-    }
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.food-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.food-modal.active {
+  display: block;
+}
+
+.food-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+}
+
+.food-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, calc(100% - 32px));
+  margin: 5vh auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0d0d0d;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+}
+
+.food-modal-content img {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.food-modal-copy {
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.food-modal-copy h3 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  line-height: 1;
+}
+
+.food-modal-copy p {
+  margin: 0;
+  color: #d7d0c8;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.food-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.food-modal-close:hover {
+  background: rgba(255,106,0,0.18);
+}
 
     .notify {
       padding: 28px 0 80px;
@@ -731,96 +808,111 @@
   width: min(520px, 100%);
   height: auto;
   display: block;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
 }
-    
-    @media (max-width: 980px) {
-      .hero-grid,
-      .section-grid,
-      .section-two-grid,
-      .feature-grid,
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
 
-        .food-image-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-      .hero {
-        padding-top: 52px;
-      }
-
-      .meteor-box {
-        height: 360px;
-      }
-
-      .hero-bottom {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .footer-brand,
-      .footer-tagline,
-      .footer-social {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .topbar-inner {
-        flex-direction: column;
-        align-items: start;
-        gap: 12px;
-      }
-
-        .food-image-grid {
+@media (max-width: 980px) {
+  .hero-grid,
+  .section-grid,
+  .feature-grid {
     grid-template-columns: 1fr;
   }
 
-      .nav a {
-        margin-left: 0;
-        margin-right: 14px;
-      }
+  .food-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-      .hero,
-      .notify {
-        padding-left: 0;
-        padding-right: 0;
-      }
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-      .section-card,
-      .notify-card,
-      .hero-card {
-        padding: 20px;
-      }
+  .food-modal-content {
+    grid-template-columns: 1fr;
+  }
 
-      .food-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+  .hero {
+    padding-top: 52px;
+  }
 
-      .meteor {
-        width: 210px;
-        height: 210px;
-        padding: 22px;
-      }
+  .meteor-box {
+    height: 360px;
+  }
 
-      .meteor-box {
-        height: 320px;
-      }
+  .hero-bottom {
+    grid-template-columns: 1fr;
+  }
 
-      .social-links a {
-        min-width: 0;
-        width: 100%;
-      }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-      .footer-social {
-        gap: 10px 14px;
-      }
-    }
+  .footer-brand,
+  .footer-tagline,
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar-inner {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .food-image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-modal-content img {
+    min-height: 260px;
+  }
+
+  .food-modal-copy {
+    padding: 22px 18px;
+  }
+
+  .nav a {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+
+  .hero,
+  .notify {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-card,
+  .notify-card,
+  .hero-card {
+    padding: 20px;
+  }
+
+  .meteor {
+    width: 210px;
+    height: 210px;
+    padding: 22px;
+  }
+
+  .meteor-box {
+    height: 320px;
+  }
+
+  .social-links a {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .footer-social {
+    gap: 10px 14px;
+  }
+}
   </style>
 </head>
 <body class="noise">
@@ -959,92 +1051,95 @@
       </div>
     </section>
 
-    <section class="section-two" id="uses">
-      <div class="container">
-        <div class="section-card">
-          <div class="section-two-grid">
-            <div>
-              <div class="section-kicker">Flavor targets</div>
-              <h2>Drop it on everything</h2>
-              <p class="section-copy">
-                Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
-              </p>
+<section class="section-two" id="uses">
+  <div class="container">
+    <div class="section-card">
 
-             <div class="food-image-grid">
-  <div class="food-card">
-    <img src="images/Tacos.png" alt="Tacos with MEATYORITE">
-    <div class="food-card-label">Tacos</div>
-  </div>
+      <div class="section-kicker">Flavor targets</div>
+      <h2>Drop it on everything</h2>
+      <p class="section-copy">
+        Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
+      </p>
 
-  <div class="food-card">
-    <img src="images/Nachos.png" alt="Nachos with MEATYORITE">
-    <div class="food-card-label">Nachos</div>
-  </div>
+      <!-- FULL WIDTH FOOD GRID -->
+      <div class="food-image-grid">
 
-  <div class="food-card">
-    <img src="images/Ramen.png" alt="Ramen with MEATYORITE">
-    <div class="food-card-label">Ramen</div>
-  </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('Tacos', 'images/Tacos.png', 'Smoked meat bites turn tacos into a bold BBQ flavor hit in seconds.')">
+          <img src="images/Tacos.png">
+          <div class="food-card-label">Tacos</div>
+        </button>
 
-  <div class="food-card">
-    <img src="images/Potatoe.png" alt="Baked potato with MEATYORITE">
-    <div class="food-card-label">Baked Potatoes</div>
-  </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('Nachos', 'images/Nachos.png', 'Pile on real smoked meat for loaded nachos with instant protein and flavor impact.')">
+          <img src="images/Nachos.png">
+          <div class="food-card-label">Nachos</div>
+        </button>
 
-  <div class="food-card">
-    <img src="images/Pizza.png" alt="Pizza with MEATYORITE">
-    <div class="food-card-label">Pizza</div>
-  </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('Ramen', 'images/Ramen.png', 'Upgrade a simple bowl of ramen with smoky meat bites that make it feel like a real meal.')">
+          <img src="images/Ramen.png">
+          <div class="food-card-label">Ramen</div>
+        </button>
 
-  <div class="food-card">
-    <img src="images/MacandCheese.png" alt="Mac and cheese with MEATYORITE">
-    <div class="food-card-label">Mac &amp; Cheese</div>
-  </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('Baked Potatoes', 'images/Potatoe.png', 'Top baked potatoes with smoked meat bites for a rich, hearty BBQ-style comfort meal.')">
+          <img src="images/Potatoe.png">
+          <div class="food-card-label">Baked Potatoes</div>
+        </button>
 
-  <div class="food-card">
-    <img src="images/BBQSandwich.png" alt="BBQ sandwich with MEATYORITE">
-    <div class="food-card-label">BBQ Sandwich</div>
-  </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('Pizza', 'images/Pizza.png', 'Add real smoked meat to pizza for a dramatic flavor upgrade that feels indulgent and craveable.')">
+          <img src="images/Pizza.png">
+          <div class="food-card-label">Pizza</div>
+        </button>
 
-  <div class="food-card">
-    <img src="images/BBQSandwich2.png" alt="BBQ sandwich with MEATYORITE">
-    <div class="food-card-label">BBQ Sandwich 2</div>
-  </div>
-</div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('Mac &amp; Cheese', 'images/MacandCheese.png', 'Creamy mac and cheese gets a protein-packed BBQ boost with smoky, tender meat bites.')">
+          <img src="images/MacandCheese.png">
+          <div class="food-card-label">Mac &amp; Cheese</div>
+        </button>
 
-            <div class="detail-grid">
-              <div class="detail">
-                <h3>Craft BBQ energy</h3>
-                <p>
-                  Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.
-                </p>
-              </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('BBQ Sandwich', 'images/BBQSandwich.png', 'Build a classic BBQ sandwich faster with ready-to-eat smoked meat bites and real pit flavor.')">
+          <img src="images/BBQSandwich.png">
+          <div class="food-card-label">BBQ Sandwich</div>
+        </button>
 
-              <div class="detail">
-                <h3>Impulse buy appeal</h3>
-                <p>
-                  Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.
-                </p>
-              </div>
+        <button class="food-card" type="button"
+          onclick="openFoodModal('BBQ Sandwich 2', 'images/BBQSandwich2.png', 'Another craveable sandwich option showing how MEATYER upgrades easy, bold, everyday eating.')">
+          <img src="images/BBQSandwich2.png">
+          <div class="food-card-label">BBQ Sandwich 2</div>
+        </button>
 
-              <div class="detail">
-                <h3>Protein with personality</h3>
-                <p>
-                  Not another boring meat snack. This is a flavor weapon with a story people remember.
-                </p>
-              </div>
+      </div>
 
-              <div class="detail">
-                <h3>Coming soon</h3>
-                <p>
-                  We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.
-                </p>
-              </div>
-            </div>
-          </div>
+      <!-- DETAILS BELOW (FULL WIDTH NOW) -->
+      <div class="detail-grid" style="margin-top:28px;">
+        <div class="detail">
+          <h3>Craft BBQ energy</h3>
+          <p>Black, ember-red, and fire-orange visuals with smoky depth built to jump off the shelf.</p>
+        </div>
+
+        <div class="detail">
+          <h3>Impulse buy appeal</h3>
+          <p>Fast, bold, dramatic packaging designed for c-stores, grocery snack aisles, and wholesale retail.</p>
+        </div>
+
+        <div class="detail">
+          <h3>Protein with personality</h3>
+          <p>Not another boring meat snack. This is a flavor weapon with a story people remember.</p>
+        </div>
+
+        <div class="detail">
+          <h3>Coming soon</h3>
+          <p>We are building the next bold category in smoked meat snacks. Follow the launch and be first to know.</p>
         </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
 
     <section class="notify" id="notify">
       <div class="container">
@@ -1131,36 +1226,65 @@
     </div>
   </footer>
 
-  <script>
-    const form = document.getElementById("notifyForm");
-    const success = document.getElementById("notifySuccess");
+<script>
+  function openFoodModal(title, image, text) {
+    const modal = document.getElementById("foodModal");
+    const modalTitle = document.getElementById("foodModalTitle");
+    const modalImage = document.getElementById("foodModalImage");
+    const modalText = document.getElementById("foodModalText");
 
-    if (form) {
-      form.addEventListener("submit", async function(e) {
-        e.preventDefault();
+    modalTitle.textContent = title;
+    modalImage.src = image;
+    modalImage.alt = title;
+    modalText.textContent = text;
 
-        const data = new FormData(form);
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 
-        try {
-          const response = await fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-              Accept: "application/json"
-            }
-          });
+  function closeFoodModal() {
+    const modal = document.getElementById("foodModal");
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
 
-          if (response.ok) {
-            form.style.display = "none";
-            success.style.display = "block";
-          } else {
-            alert("Something went wrong. Please try again.");
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      closeFoodModal();
+    }
+  });
+
+  const form = document.getElementById("notifyForm");
+  const success = document.getElementById("notifySuccess");
+
+  if (form) {
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json"
           }
-        } catch (error) {
+        });
+
+        if (response.ok) {
+          form.style.display = "none";
+          success.style.display = "block";
+        } else {
           alert("Something went wrong. Please try again.");
         }
-      });
-    }
-  </script>
+      } catch (error) {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  }
+</script>
 </body>
 </html>
