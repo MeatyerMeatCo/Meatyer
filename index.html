@@ -490,6 +490,48 @@
       align-items: center;
     }
 
+.food-image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.food-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+}
+
+.food-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.food-card:hover img {
+  transform: scale(1.05);
+}
+
+.food-card-label {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.7);
+  color: #ffcf9b;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+    
     .food-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 24px;
@@ -700,6 +742,10 @@
         grid-template-columns: 1fr;
       }
 
+        .food-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
       .hero {
         padding-top: 52px;
       }
@@ -730,6 +776,10 @@
         align-items: start;
         gap: 12px;
       }
+
+        .food-image-grid {
+    grid-template-columns: 1fr;
+  }
 
       .nav a {
         margin-left: 0;
@@ -920,15 +970,47 @@
                 Built for quick meals, late-night cravings, game days, lunch upgrades, road trips, and everyday wins.
               </p>
 
-              <div class="food-grid">
-                <div class="food">Tacos</div>
-                <div class="food">Nachos</div>
-                <div class="food">Ramen</div>
-                <div class="food">Baked Potatoes</div>
-                <div class="food">Pizza</div>
-                <div class="food">Mac &amp; Cheese</div>
-              </div>
-            </div>
+             <div class="food-image-grid">
+  <div class="food-card">
+    <img src="images/Tacos.png" alt="Tacos with MEATYORITE">
+    <div class="food-card-label">Tacos</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/Nachos.png" alt="Nachos with MEATYORITE">
+    <div class="food-card-label">Nachos</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/Ramen.png" alt="Ramen with MEATYORITE">
+    <div class="food-card-label">Ramen</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/Potatoe.png" alt="Baked potato with MEATYORITE">
+    <div class="food-card-label">Baked Potatoes</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/Pizza.png" alt="Pizza with MEATYORITE">
+    <div class="food-card-label">Pizza</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/MacandCheese.png" alt="Mac and cheese with MEATYORITE">
+    <div class="food-card-label">Mac &amp; Cheese</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/BBQSandwich.png" alt="BBQ sandwich with MEATYORITE">
+    <div class="food-card-label">BBQ Sandwich</div>
+  </div>
+
+  <div class="food-card">
+    <img src="images/BBQSandwich2.png" alt="BBQ sandwich with MEATYORITE">
+    <div class="food-card-label">BBQ Sandwich 2</div>
+  </div>
+</div>
 
             <div class="detail-grid">
               <div class="detail">
